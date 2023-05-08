@@ -1,18 +1,16 @@
 import React from 'react';
-import Contador from '../Contador/Contador';
-
+import { useCartContext} from "../../context/CartContext"
+  
 export const CartWidget = () => {
-
-  const onAdd = (quantity) => {
-    console.log(`Compraste ${quantity} unidades`);
-  }
+  const {totalProducts} = useCartContext();
 
   return (
     <div>
       <i className="bi bi-cart3"></i>
-      <Contador initial={1} stock={10} onAdd={onAdd} />
+      <span>{totalProducts() || ""} </span>
+      
     </div>
   )
 }
 
-export default CartWidget
+export default CartWidget;
